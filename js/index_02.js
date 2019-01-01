@@ -1,0 +1,1 @@
+ReactDOM.render(<Counters />,document.getElementById('root')); 				

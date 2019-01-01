@@ -3,17 +3,16 @@ class Counter extends React.Component {
     	count : 0,
     	tags_1 : ['tag1','tag2','tag3'],
     	tags : ['tag1','tag2','tag3'],
+        value : this.props.value,
     };
 
     krishna = {kirtan:'harinam'};
-
-    styles = {fontSize : 50};
-
-    constructor(){
+    styles = {fontSize : 20};
+    /*constructor(){
     	super();
     	this.handleIncrement = this.handleIncrement.bind(this);
     	//console.log('this is constructor : ', this);
-    }
+    }*/
 
     handleIncrement(){
     	console.log('Increment Clicked',this);
@@ -30,7 +29,25 @@ class Counter extends React.Component {
     	this.setState({count: this.state.count});
     }
 
-    render() {    
+    handleIncrementmy = () => {
+        this.state.value++;
+        console.log('HSD', this.state.value);
+        this.setState({value: this.state.value});
+    }
+
+    render() {  
+        console.log(this.props)  
+        let classes = this.getBadgeClasses();   
+        return (
+            <div>
+                {this.props.children}
+                <span className={classes} style={this.styles}>{this.formatCount()}</span>
+                <button onClick={this.handleIncrementmy} className="btn btn-secondary btn-sm">Increment</button>              
+            </div>
+            ); 
+    }
+
+    render_old2() {    
     	let classes = this.getBadgeClasses();	
     	return (
     		<React.Fragment>
@@ -60,6 +77,11 @@ class Counter extends React.Component {
     }
 
     formatCount(){
+        const {value} = this.state;
+        return value === 0 ? "Zero" : value;
+    }
+
+    formatCount2(){
     	const {count} = this.state;
     	return count === 0 ? "Zero" : count;
     }
