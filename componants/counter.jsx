@@ -9,14 +9,35 @@ class Counter extends React.Component {
 
     styles = {fontSize : 50};
 
-    handleIncrement(){
-    	console.log('Increment Clicked');
+    constructor(){
+    	super();
+    	this.handleIncrement = this.handleIncrement.bind(this);
+    	//console.log('this is constructor : ', this);
     }
 
-    render() {    	
+    handleIncrement(){
+    	console.log('Increment Clicked',this);
+    }
+
+    handleIncrement2 = () => {
+    	this.state.count++;
+    	this.setState({count: this.state.count});
+    	console.log('Increment Clicked2',this, this.state.count);
+    }
+
+    handleIncrement3 = product => {
+    	this.state.count++;
+    	this.setState({count: this.state.count});
+    }
+
+    render() {    
+    	let classes = this.getBadgeClasses();	
     	return (
     		<React.Fragment>
+    			<span className={classes} style={this.styles}>{this.formatCount()}</span>
     			<button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
+    			<button onClick={this.handleIncrement2} className="btn btn-secondary btn-sm">Increment2</button>
+    			<button onClick={() => this.handleIncrement3(product)} className="btn btn-secondary btn-sm">Increment3</button>
     			{this.state.tags.length === 0 && 'Please enter new tags' }
     			<div>{this.renderTags()}</div>    			
     		</React.Fragment>
