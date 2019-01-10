@@ -1,0 +1,26 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <header>
+ 	<title>Test React</title>
+ 	<meta charset="utf-8">
+ 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+ 	<script src= "js/react.production.min.js"></script>
+	<script src= "js/react-dom.production.min.js"></script>
+	<!-- <script src= "js/react-router.min.js"></script> -->
+	<script src= "js/react-router-dom.min.js"></script>
+	 
+ 	<script src="js/babel.min.js"></script>	
+    <script type="text/babel" src="componants/layout.jsx"></script>
+    <script type="text/babel">
+        ReactDOM.render
+            (<Router>
+                <Route path="/" component="{Layout}"></Route>
+            </Router>
+            ,document.getElementById('root'));
+        //ReactDOM.render(<Layout />,document.getElementById('root'));
+    </script>
+ </header>
+ <body>
+	<div id="root"></div> 	
+ </body>
+ </html>
