@@ -97,7 +97,7 @@ class App extends Component {
         return (
             <div className="App">
                 <h1>Hi I'm a React APP</h1>
-                <h1 className={classes.join(' ')}>This is working awesome</h1>
+                <h1 className={classes.join(' ')}>This is working awesome...</h1>
                 <button style={style} onClick={this.togglePersonHandler}>Toggle Name</button>
                 {persons}                    
             </div>
