@@ -1,0 +1,67 @@
+<script>
+var myname = 'swapnil';
+console.log(myname);
+myname = 'pradyna';
+console.log(myname);
+
+const printMyName = (name, abcd) => {
+    console.log(name, abcd);
+}
+
+printMyName('krishna', 'rama');
+
+const multiply = (number) => number * 2;
+console.log(multiply(2));
+
+
+
+class Human{
+    
+        gender = 'male';
+    printGender = () => {
+        console.log(this.gender);
+    }
+}
+
+class Person extends Human{
+    
+        name = 'Hare krishna Hare Krishna';
+        gender = 'female';
+
+    printMyName = () => {
+        console.log(this.name);
+    }
+}
+
+const person = new Person();
+person.printMyName();
+person.printGender();
+
+const number = [1,2,3,4,5];
+const newnumbers = [...number, 6,7,8];
+console.log(newnumbers);
+
+const person1  = {
+    name : "Max"
+};
+
+const newPerson = {
+    ...person1,age : 28
+};
+console.log(newPerson);
+
+const filter = (...args) => {
+    return args.filter(el => el === 1);
+}
+
+console.log(filter(1,2,3,1,1,1,1));
+//[a,b] = ['Hellow', 'krishna'];
+const numbers = [1,2,3];
+[num1,num2] = numbers;
+console.log(num1,num2);
+
+
+const doubleNumArray = numbers.map((num) => num * 2);
+console.log(doubleNumArray);
+
+</script>
