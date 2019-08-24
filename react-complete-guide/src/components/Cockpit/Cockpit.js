@@ -1,11 +1,29 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import classes from './Cockpit.css';
 
 const cockpit = (props) => {
 
+    useEffect(() => {
+        console.log('[Cockpit.js] useEffect');
+        const timer = setTimeout(() => {
+           //alert('Saved data to load');
+        },1000);
+        return () => {
+            clearTimeout(timer);
+            console.log('[Cockpit.js]  cleanup work in useEffect');
+        };
+    }, []);
+
+    useEffect(() => {
+        console.log('[Cockpit.js] 2nd useEffect');
+        return () => {
+            console.log('[Cockpit.js]  cleanup work in 2nd useEffect');
+        };
+    });
+
     const assignedClasses = [];
-    
+
     let btnClass = '';
     if(props.showPersons){
         btnClass = classes.Red;
@@ -23,7 +41,7 @@ const cockpit = (props) => {
 
     return (
     <div className={classes.Cockpit}> 
-    <h1>Hi I'm a React APP</h1>
+    <h1>{props.title}</h1>
     <h1 className={assignedClasses.join(' ')}>This is working awesome...</h1>
     <button className={btnClass} onClick={props.clicked}>Toggle Name</button>
     </div>

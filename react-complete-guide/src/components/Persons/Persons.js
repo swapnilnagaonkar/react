@@ -3,6 +3,7 @@ import Person from './Person/Person';
 
 
 const person = (props) => props.persons.map( (person,index) => {
+    console.log('[Persons.js] Rendering.....');
     return <Person 
             name={person.name} 
             age={person.age} 

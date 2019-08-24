@@ -1,29 +1,46 @@
-import React from 'react';
+import React , {Component} from 'react';
 import classes from './Person.css';
 //import Radium from 'radium';
 
-const person = (props) => {
+class Person extends Component{
 
-    /*const style = {
-        '@media (min-width : 500px)' : {
-            width : '450px'
+        // static getDerivedStateFromProps(props,state){
+        //     console.log('[Person.js] getDerivedStateFromProps');
+        //     return state;
+        // }
+
+        shouldComponentUpdate(nextProps, nextState){
+            console.log('[Person.js] shouldComponentUpdate');
+            return true;
         }
-    }*/
 
-    const rnd = Math.random();
+        getSnapshotBeforeUpdate(prevProps, prevState){
+            console.log('[Person.js] getSnapshotBeforeUpdate');
+            //return true;
+        }
 
-    if( rnd > 0.7 ){
-        //throw new Error( 'Something went wrong' );
-    }
+        componentDidUpdate(){
+            console.log('[Person.js] componentDidUpdate');
+        }
 
-    return (
-        <div className={classes.Person}>
-            <p onClick={props.click}> I am person and I'm {Math.floor(Math.random() * 30)} {props.name} {props.age}</p>
-            <p>{props.children}</p>
-            <input type="text" onChange={props.changed} value={props.name}/>
-        </div>
-    );
+        componentWillUnmount(){
+            console.log('[Person.js] componantWillUnmount');
+        }
+
+
+        render(){
+            console.log('[Persons.js] Rendering');
+
+            return (
+                <div className={classes.Person}>
+                    <p onClick={this.props.click}> I am person and I'm {Math.floor(Math.random() * 30)} {this.props.name} {this.props.age}</p>
+                    <p>{this.props.children}</p>
+                    <input type="text" onChange={this.props.changed} value={this.props.name}/>
+                </div>
+            );
+        }
+    
 }
 
 //export default Radium(person);
-export default person;
+export default Person;
